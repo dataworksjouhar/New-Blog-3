@@ -7,7 +7,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   AI Agents, and career development based on real-world experience. Created to inspire 
   and educate aspiring analysts, data professionals, and curious learners.
 baseurl: "/New-Blog-3" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://dataworksjouhar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: mohammed-jouhar
 github_username: 
 
