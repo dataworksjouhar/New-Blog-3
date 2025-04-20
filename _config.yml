@@ -1,0 +1,75 @@
+# Site settings for Mohammed Jouhar's Personal Blog
+title: "my dataworks – Mohammed Jouhar"
+tagline: "Exploring AI, data, and career growth—one post at a time"
+email: ""
+description: >- # this means to ignore newlines until "baseurl:"
+  A personal blog sharing practical, easy-to-understand insights in Data Analytics, 
+  AI Agents, and career development based on real-world experience. Created to inspire 
+  and educate aspiring analysts, data professionals, and curious learners.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+linkedin_username: mohammed-jouhar
+github_username: 
+
+# Author information
+author:
+  name: Mohammed Jouhar
+  bio: >-
+    A data professional with over 10 years of experience in analytics, automation, 
+    and data strategy. I've worked in retail, data migration, AI agents, and more.
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Collections
+collections:
+  categories:
+    output: true
+    permalink: /category/:name/
+
+# Default front matter settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Mohammed Jouhar"
+      
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Custom variables
+categories:
+  - Data Analytics
+  - AI Agents & Automation
+  - Career Tips
+  - Projects & Case Studies
+  - Learning Notes
+
+# Pagination settings
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

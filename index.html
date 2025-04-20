@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="home-container">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="site-tagline">{{ site.tagline }}</h1>
+      <div class="author-intro">
+        <p>I'm Mohammed Jouhar, a data professional with over 10 years of experience in analytics, automation, and data strategy. I've worked in retail, data migration, AI agents, and more. I created this blog to share practical, easy-to-understand insights in data, AI, and career growth for aspiring analysts, professionals, and curious learners.</p>
+        <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">More About Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-posts">
+    <h2 class="section-title">Featured Posts</h2>
+    <div class="post-grid">
+      {% for post in site.posts limit:3 %}
+      <div class="post-card">
+        <div class="post-card-content">
+          {% if post.categories.size > 0 %}
+          <span class="post-category">{{ post.categories | first }}</span>
+          {% endif %}
+          <h3 class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          </div>
+          <div class="post-card-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 30 }}
+          </div>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <h2 class="section-title">Explore by Category</h2>
+    <div class="categories-grid">
+      {% for category in site.categories %}
+      <a href="{{ site.baseurl }}/category/{{ category | first | slugify }}/" class="category-card">
+        <h3>{{ category | first }}</h3>
+        <span class="post-count">{{ category | last | size }} posts</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="recent-posts">
+    <h2 class="section-title">Recent Posts</h2>
+    <div class="post-list">
+      {% for post in site.posts limit:5 offset:3 %}
+      <div class="post-item">
+        <div class="post-item-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          {% if post.categories.size > 0 %}
+          <span class="post-category">{{ post.categories | first }}</span>
+          {% endif %}
+        </div>
+        <h3 class="post-item-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <div class="post-item-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 20 }}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="view-all">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">View All Posts</a>
+    </div>
+  </section>
+</div>

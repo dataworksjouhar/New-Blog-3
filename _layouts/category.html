@@ -1,0 +1,30 @@
+---
+layout: default
+title: Category
+---
+
+<div class="category-container">
+  <header class="category-header">
+    <h1 class="category-title">{{ page.category }}</h1>
+    <p class="category-description">Browse all posts in the {{ page.category }} category</p>
+  </header>
+
+  <div class="post-list">
+    {% for post in site.categories[page.category] %}
+    <article class="post-item">
+      <div class="post-item-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      </div>
+      <h2 class="post-item-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <div class="post-item-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 50 }}
+      </div>
+      <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="back-to-blog">
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">Back to All Posts</a>
+  </div>
+</div>
